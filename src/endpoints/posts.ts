@@ -1,4 +1,4 @@
-import { API_ENDPOINT } from "@constants/global";
+import { API_ENDPOINT } from "@constants/envValues";
 import { getFromCacheOrServer } from "@root/endpoints/dataFetching";
 
 const POSTS_BASE_URL = `${API_ENDPOINT}/posts`;

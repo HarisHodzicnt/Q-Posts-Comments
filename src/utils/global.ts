@@ -1,4 +1,5 @@
 import { IWrapPromise } from "@root/interfaces/IWrapPromise";
+import { DebounceFunctionT } from "@root/types/DebounceType";
 
 const wrapPromise = <T>(promise: Promise<T>): IWrapPromise<T> => {
   let status: "pending" | "success" | "error" = "pending";
@@ -29,12 +30,12 @@ const wrapPromise = <T>(promise: Promise<T>): IWrapPromise<T> => {
   };
 };
 
-const debounce = <F extends (...args: Parameters<F>) => ReturnType<F>>(
-  func: F,
-  delay: number = 300
+const debounce: DebounceFunctionT<(...args: any[]) => any> = (
+  func,
+  delay = 300
 ) => {
   let timeout: NodeJS.Timeout;
-  return (...args: Parameters<F>) => {
+  return (...args: Parameters<typeof func>) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), delay);
   };

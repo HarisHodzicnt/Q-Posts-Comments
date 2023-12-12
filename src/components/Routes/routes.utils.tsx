@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 
 const Home = lazy(() => import("@components/Home"));
-const PostDetails = lazy(() => import("@root/components/PostDetails"));
+const PostDetails = lazy(() => import("@components/PostDetails"));
 const NotFound = lazy(() => import("@components/Shared/NotFound"));
 const PostPlaceholder = lazy(() => import("@components/PostPlaceholder"));
 const Posts = lazy(() => import("@components/Posts"));

@@ -7,4 +7,8 @@ const dummyProps: IPost = {
   body: "",
 };
 
-export { dummyProps };
+const DummyComponent = () => {
+  return null;
+};
+
+export { dummyProps, DummyComponent };
