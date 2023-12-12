@@ -1,0 +1,11 @@
+node_modules
+.dockerignore
+.gitignore
+Dockerfile
+README.me
+.env
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store

@@ -1,0 +1,23 @@
+.fieldInput {
+    font-size: 16px;
+    padding: 15px;
+    border: 1px solid #24242470;
+    background-color: #494545;
+    border-radius: 5px;
+    outline: none;
+    min-width: 150px;
+    width: 40%;
+    max-width: 350px;
+    transition: border-color 0.3s ease;
+    margin: 0px auto;
+    color: #ccc;
+    display: block;
+}
+
+.fieldInput:focus {
+    border-color: #ccc;
+}
+
+.fieldInput::placeholder {
+    color: #aaa;
+}

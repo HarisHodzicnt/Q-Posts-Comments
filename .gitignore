@@ -1,0 +1,9 @@
+node_modules
+dist
+yarn.lock
+.env
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store

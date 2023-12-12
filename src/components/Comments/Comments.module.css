@@ -1,0 +1,70 @@
+.commentsList {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 5px 20px;
+    margin-bottom: 40px;
+}
+
+.commentCard {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+    min-width: 350px;
+    width: 500px;
+    position: relative;
+    flex: 1;
+}
+
+.commentCard:hover {
+    box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.commentTitle {
+    min-height: 100px;
+}
+
+.commentEmail {
+    margin: 5px 0px;
+    color: #d3d3d3;
+}
+
+.commentBody {
+    min-height: 100px;
+}
+
+.inPostContainer {
+    max-height: 300px;
+    overflow: auto;
+    transition: all 1s;
+}
+
+.showAbsolute::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .showAbsolute::-webkit-scrollbar-thumb {
+    background-color: #e3e0e0; /* Color of the scrollbar handle */
+  }
+
+@media (max-width: 1280px) {
+    .commentCard {
+        width: 45%;
+    }
+}
+
+@media (max-width: 830px) {
+    .commentCard {
+        width: 90%;
+        margin: 0px;
+    }
+}
+
+@media (max-width: 381px) {
+    .commentCard {
+        width: 90%;
+        min-width: auto;
+    }
+}

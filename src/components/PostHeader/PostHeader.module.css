@@ -1,0 +1,10 @@
+.postHeader {
+    display: flex;
+    gap: 30px;
+    margin: 20px;
+    justify-content: center;
+}
+.title {
+    font-size: 2rem;
+    text-align: center;
+}
