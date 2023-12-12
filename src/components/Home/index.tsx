@@ -12,10 +12,10 @@ const Home = () => {
         In next sections you can find route to Posts and Comments + my CV, have
         fun :D
       </div>
-      <div className={styles.link}>
+      <nav className={styles.link}>
         <span>Link to: </span>
         <Link to="/posts">Posts & Comments</Link>
-      </div>
+      </nav>
       <PDFViewerTsx />
     </div>
   );

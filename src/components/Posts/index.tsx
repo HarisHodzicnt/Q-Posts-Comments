@@ -27,13 +27,13 @@ const Posts = () => {
         onChange={debounce(handleFilter, 500)}
         placeholder="Search by author ..."
       />
-      <div className={styles.postList}>
+      <main className={styles.postList}>
         {posts.length ? (
           posts.map((post: IPost) => <PostDetails key={post.id} post={post} />)
         ) : (
           <div className={styles.noMatch}>{SEARCH_NO_MATCH}</div>
         )}
-      </div>
+      </main>
     </PageWrapper>
   );
 };

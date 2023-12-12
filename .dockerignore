@@ -3,7 +3,6 @@ node_modules
 .gitignore
 Dockerfile
 README.me
-.env
 *.log
 .vscode/*
 !.vscode/extensions.json

@@ -1,15 +1,7 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CommentsToggler from "@components/CommentsToggler";
-
-jest.mock("@root/hooks/useToggle", () => ({
-  __esModule: true,
-  default: jest.fn(() => ({
-    show: false,
-    toggleShow: jest.fn(),
-  })),
-}));
 
 jest.mock("@components/Comments", () => ({
   __esModule: true,
@@ -29,14 +21,18 @@ describe("CommentsToggler Component", () => {
 
   test("toggles comments on button click", async () => {
     render(<CommentsToggler postId={1} inPostContainer={true} />);
+    userEvent.click(screen.getByText("Show comments"));
 
-    userEvent.click(screen.getByText("Show comments")).then(() => {
+    await waitFor(() => {
       expect(screen.getByText("Hide comments")).toBeInTheDocument();
       expect(screen.getByText("Mocked Comments")).toBeInTheDocument();
-      userEvent.click(screen.getByText("Hide comments")).then(() => {
-        expect(screen.getByText("Show comments")).toBeInTheDocument();
-        expect(screen.queryByText("Mocked Comments")).toBeNull();
-      });
+    });
+
+    userEvent.click(screen.getByText("Hide comments"));
+
+    await waitFor(() => {
+      expect(screen.getByText("Show comments")).toBeInTheDocument();
+      expect(screen.queryByText("Mocked Comments")).toBeNull();
     });
   });
 });

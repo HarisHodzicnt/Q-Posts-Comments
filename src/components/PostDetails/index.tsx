@@ -1,7 +1,11 @@
 import { Suspense, lazy } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import withLogger from "@hoc/withLogger";
-import { getCardClassNames, modifyPostTitleBody } from "@utils/post";
+import {
+  getCardClassNames,
+  modifyPostTitleBody,
+  getElementType,
+} from "@utils/post";
 import { fetchPost } from "@endpoints/posts";
 
 import PageWrapper from "@containers/PageWrapper";
@@ -23,9 +27,11 @@ const PostDetails = ({ post }: IPostDetailsProps) => {
     fetchedPostId,
     post
   );
-  const cardClassNames = getCardClassNames(fetchedPostId, styles, !!post);
+  const isStandAlone = !post;
+  const cardClassNames = getCardClassNames(fetchedPostId, styles, isStandAlone);
   const goToPost = () => post && navigate(`/post/${fetchedPostId}`);
-  const [postTitle, postBody] = modifyPostTitleBody(fetchedPost, !!post);
+  const [postTitle, postBody] = modifyPostTitleBody(fetchedPost, isStandAlone);
+  const ElementType = getElementType(isStandAlone);
   return (
     <PageWrapper
       title="Post details page"
@@ -34,7 +40,7 @@ const PostDetails = ({ post }: IPostDetailsProps) => {
       route="/posts"
       buttonText="Go to posts"
     >
-      <div onClick={goToPost} className={cardClassNames}>
+      <ElementType onClick={goToPost} className={cardClassNames}>
         <h2 className={styles.postTitle} title={fetchedPost.title}>
           {postTitle}
         </h2>
@@ -51,7 +57,7 @@ const PostDetails = ({ post }: IPostDetailsProps) => {
             <Author post={fetchedPost} />
           </Suspense>
         )}
-      </div>
+      </ElementType>
     </PageWrapper>
   );
 };

@@ -20,18 +20,21 @@ const getCardClassNames = (
   return cardClassNames;
 };
 
-const modifyPostTitleBody = (fetchedPost: IPost, havePost: boolean) => {
+const modifyPostTitleBody = (fetchedPost: IPost, isStandAlone: boolean) => {
   const postTitle = truncateTextWithEllipsis(
     capitalizedString(fetchedPost.title),
     55,
-    !havePost
+    isStandAlone
   );
   const postBody = truncateTextWithEllipsis(
     capitalizedString(fetchedPost.body),
     100,
-    !havePost
+    isStandAlone
   );
   return [postTitle, postBody];
 };
 
-export { getCardClassNames, modifyPostTitleBody };
+const getElementType = (isStandAlone: boolean) =>
+  isStandAlone ? "main" : "section";
+
+export { getCardClassNames, modifyPostTitleBody, getElementType };
