@@ -12,6 +12,8 @@ This application comprises three main pages:
 
 ## How to Run
 
+Create a `.env` file and copy contents from `sample-env` to the newly created file.
+
 ### Using Docker, prod version
 
 If you have Docker installed on your machine, follow these steps:
@@ -34,17 +36,15 @@ If you don't have/want to use Docker, follow these steps:
 
    yarn install
 
-2. Create a `.env` file and copy contents from `sample-env` to the newly created file.
-
-3. Start the development version of the project:
+2. Start the development version of the project:
 
    yarn dev
 
-4. Build the project:
+3. Build the project:
 
    yarn build
 
-5. Run the production version of the project:
+4. Run the production version of the project:
 
    yarn preview
 
